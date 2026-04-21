@@ -22,7 +22,7 @@ jobs:
       run: docker build ./backend/app -t backend-test
 
     - name: Build Frontend
-      run: docker build ./frontend/coldchain-ui -t frontend-test
+      run: docker build ./frontend -t frontend-test
 
     - name: Run Containers Test
       run: |
