@@ -26,9 +26,9 @@ jobs:
 
     - name: Run Containers Test
       run: |
-        docker-compose up -d
+        docker compose up -d
         sleep 10
         docker ps
 
     - name: Stop Containers
-      run: docker-compose down
+      run: docker compose down
