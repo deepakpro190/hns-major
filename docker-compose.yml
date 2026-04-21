@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build: ./backend/app
+    container_name: fastapi_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:rakesh1972@db:5432/coldchain
+
+  frontend:
+    build: ./frontend/coldchain-ui
+    container_name: react_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:14
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rakesh1972
+      POSTGRES_DB: coldchain
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

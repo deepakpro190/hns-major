@@ -1,0 +1,4 @@
+postgre sql
+usrname- postgres
+password - rakesh1972
+port 5432
